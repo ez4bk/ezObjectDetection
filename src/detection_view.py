@@ -13,6 +13,7 @@ class Ui_objectdetectionWindow(object):
     def setupUi(self, objectdetectionWindow):
         objectdetectionWindow.setObjectName("objectdetectionWindow")
         objectdetectionWindow.resize(1200, 800)
+        objectdetectionWindow.setFocusPolicy(QtCore.Qt.FocusPolicy.ClickFocus)
         self.centralWidget = QtWidgets.QWidget(parent=objectdetectionWindow)
         self.centralWidget.setObjectName("centralWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.centralWidget)
@@ -146,6 +147,7 @@ class Ui_objectdetectionWindow(object):
         sizePolicy.setHeightForWidth(self.videoFrame.sizePolicy().hasHeightForWidth())
         self.videoFrame.setSizePolicy(sizePolicy)
         self.videoFrame.setMaximumSize(QtCore.QSize(690, 16777215))
+        self.videoFrame.setFocusPolicy(QtCore.Qt.FocusPolicy.NoFocus)
         self.videoFrame.setStyleSheet("QFrame{\n"
 "    background-color: rgb(255, 255, 255);\n"
 "    border:0px solid red;\n"
@@ -386,7 +388,7 @@ class Ui_objectdetectionWindow(object):
 
     def retranslateUi(self, objectdetectionWindow):
         _translate = QtCore.QCoreApplication.translate
-        objectdetectionWindow.setWindowTitle(_translate("objectdetectionWindow", "Real-time Object Detection - YoloV7"))
+        objectdetectionWindow.setWindowTitle(_translate("objectdetectionWindow", "Real-time Object Detection - YoloV8"))
         __sortingEnabled = self.menuList.isSortingEnabled()
         self.menuList.setSortingEnabled(False)
         item = self.menuList.item(0)

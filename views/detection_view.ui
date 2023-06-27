@@ -10,8 +10,11 @@
     <height>800</height>
    </rect>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
   <property name="windowTitle">
-   <string>Real-time Object Detection - YoloV7</string>
+   <string>Real-time Object Detection - YoloV8</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -260,6 +263,9 @@ border-radius:8px;
                     <width>690</width>
                     <height>16777215</height>
                    </size>
+                  </property>
+                  <property name="focusPolicy">
+                   <enum>Qt::NoFocus</enum>
                   </property>
                   <property name="styleSheet">
                    <string notr="true">QFrame{
