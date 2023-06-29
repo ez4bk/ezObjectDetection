@@ -3,12 +3,14 @@ import torch
 from PyQt6.QtCore import QThread, pyqtSignal
 from numpy import ndarray
 from ultralytics import YOLO
+from ultralytics.yolo.engine.results import Results
 import torch.cuda as cuda
 
 
 class VideoThread(QThread):
-    change_pixmap_signal = pyqtSignal(ndarray)
-    output_img_signal = pyqtSignal(ndarray)
+    update_frame_signal = pyqtSignal(ndarray)
+    update_screenshot_signal = pyqtSignal(ndarray)
+    update_result_table = pyqtSignal(Results, dict)
     finished = pyqtSignal()
 
     def __init__(self, parent=None):
@@ -16,23 +18,18 @@ class VideoThread(QThread):
         self.parent = parent
 
     def run(self):
-        model = YOLO('yolov8.pt')
+        model = YOLO('yolov8n.pt')
         names = model.names
         device = 0 if cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu'
-        cap = cv2.VideoCapture(self.parent.video_path)
-        b = True
+        cap = cv2.VideoCapture(0)
 
-        while cap.isOpened() and b:
+        while cap.isOpened() and self.parent.video_status:
             success, frame = cap.read()
             if success:
-                results = model(frame, conf=0.05, iou=0.3, device=device)
+                results = model(frame, conf=0.5, device=device)
                 annotated_frame = results[0].plot()
-                self.change_pixmap_signal.emit(annotated_frame)
+                self.update_frame_signal.emit(annotated_frame)
                 for res in results:
-                    for cls in res.boxes.cls:
-                        if names[int(cls)].strip() in []:
-                            print("Abnormal behavior suspected: " + names[int(cls)].strip())
-                            self.output_img_signal.emit(annotated_frame)
-                            b = False
+                    self.update_result_table.emit(res, names)
             else:
                 self.finished.emit()

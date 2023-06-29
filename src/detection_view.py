@@ -190,15 +190,31 @@ class Ui_objectdetectionWindow(object):
         self.verticalLayout_3.setSpacing(20)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.startButton = QtWidgets.QPushButton(parent=self.controlFrame)
+        self.startButton.setEnabled(True)
         self.startButton.setMinimumSize(QtCore.QSize(100, 25))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(-1)
         font.setBold(True)
         font.setWeight(75)
         self.startButton.setFont(font)
-        self.startButton.setStyleSheet("background-color: rgb(214, 214, 214);\n"
-"color: black;\n"
-"border-radius:10px")
+        self.startButton.setStyleSheet("QPushButton {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
+"           font-size: 16px;\n"
+"            font-weight: bold;\n"
+"            color: white;\n"
+"            border-radius: 10px;\n"
+"        }\n"
+"\n"
+"QPushButton:hover {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
+"        }\n"
+"QPushButton:pressed {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"        }\n"
+"QPushButton:disabled {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"            color: gray\n"
+"        }")
         self.startButton.setObjectName("startButton")
         self.verticalLayout_3.addWidget(self.startButton)
         self.stopButton = QtWidgets.QPushButton(parent=self.controlFrame)
@@ -209,25 +225,55 @@ class Ui_objectdetectionWindow(object):
         self.stopButton.setSizePolicy(sizePolicy)
         self.stopButton.setMinimumSize(QtCore.QSize(100, 25))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(-1)
         font.setBold(True)
         font.setWeight(75)
         self.stopButton.setFont(font)
-        self.stopButton.setStyleSheet("background-color: rgb(214, 214, 214);\n"
-"color: black;\n"
-"border-radius:10px")
+        self.stopButton.setStyleSheet("QPushButton {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
+"           font-size: 16px;\n"
+"            font-weight: bold;\n"
+"            color: white;\n"
+"            border-radius: 10px;\n"
+"        }\n"
+"\n"
+"QPushButton:hover {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
+"        }\n"
+"QPushButton:pressed {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"        }\n"
+"QPushButton:disabled {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"            color: gray\n"
+"        }")
         self.stopButton.setObjectName("stopButton")
         self.verticalLayout_3.addWidget(self.stopButton)
         self.screenshotButton = QtWidgets.QPushButton(parent=self.controlFrame)
         self.screenshotButton.setMinimumSize(QtCore.QSize(100, 25))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(-1)
         font.setBold(True)
         font.setWeight(75)
         self.screenshotButton.setFont(font)
-        self.screenshotButton.setStyleSheet("background-color: rgb(214, 214, 214);\n"
-"color: black;\n"
-"border-radius:10px")
+        self.screenshotButton.setStyleSheet("QPushButton {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
+"           font-size: 16px;\n"
+"            font-weight: bold;\n"
+"            color: white;\n"
+"            border-radius: 10px;\n"
+"        }\n"
+"\n"
+"QPushButton:hover {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
+"        }\n"
+"QPushButton:pressed {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"        }\n"
+"QPushButton:disabled {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"            color: gray\n"
+"        }")
         self.screenshotButton.setObjectName("screenshotButton")
         self.verticalLayout_3.addWidget(self.screenshotButton)
         self.saveButton = QtWidgets.QPushButton(parent=self.controlFrame)
@@ -239,29 +285,59 @@ class Ui_objectdetectionWindow(object):
         self.saveButton.setMinimumSize(QtCore.QSize(100, 25))
         self.saveButton.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(-1)
         font.setBold(True)
         font.setWeight(75)
         self.saveButton.setFont(font)
-        self.saveButton.setStyleSheet("background-color: rgb(214, 214, 214);\n"
-"color: black;\n"
-"border-radius:10px")
+        self.saveButton.setStyleSheet("QPushButton {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
+"           font-size: 16px;\n"
+"            font-weight: bold;\n"
+"            color: white;\n"
+"            border-radius: 10px;\n"
+"        }\n"
+"\n"
+"QPushButton:hover {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
+"        }\n"
+"QPushButton:pressed {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"        }\n"
+"QPushButton:disabled {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"            color: gray\n"
+"        }")
         self.saveButton.setObjectName("saveButton")
         self.verticalLayout_3.addWidget(self.saveButton)
         self.saveToButton = QtWidgets.QPushButton(parent=self.controlFrame)
         self.saveToButton.setMinimumSize(QtCore.QSize(100, 25))
         self.saveToButton.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
-        font.setPointSize(16)
+        font.setPointSize(-1)
         font.setBold(True)
         font.setWeight(75)
         self.saveToButton.setFont(font)
-        self.saveToButton.setStyleSheet("background-color: rgb(214, 214, 214);\n"
-"color: black;\n"
-"border-radius:10px")
+        self.saveToButton.setStyleSheet("QPushButton {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
+"           font-size: 16px;\n"
+"            font-weight: bold;\n"
+"            color: white;\n"
+"            border-radius: 10px;\n"
+"        }\n"
+"\n"
+"QPushButton:hover {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
+"        }\n"
+"QPushButton:pressed {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"        }\n"
+"QPushButton:disabled {\n"
+"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"            color: gray\n"
+"        }")
         self.saveToButton.setObjectName("saveToButton")
         self.verticalLayout_3.addWidget(self.saveToButton)
-        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_3.addItem(spacerItem)
         self.upperLayout.addWidget(self.controlFrame)
         self.upperLayout.setStretch(0, 2)
