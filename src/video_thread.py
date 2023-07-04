@@ -29,6 +29,9 @@ class VideoThread(QThread):
                 results = model(frame, conf=0.5, device=device)
                 annotated_frame = results[0].plot()
                 self.update_frame_signal.emit(annotated_frame)
+                if self.parent.screenshot_toggle:
+                    self.update_screenshot_signal.emit(annotated_frame)
+                    self.parent.screenshot_toggle = False
                 for res in results:
                     self.update_result_table.emit(res, names)
             else:

@@ -18,6 +18,7 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
         self.video_thread = None
         self.video_status = False
         self.screenshot = None
+        self.screenshot_toggle = False
 
     def _init_buttons(self):
         self.stopButton.setEnabled(False)
@@ -27,6 +28,7 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
 
         self.startButton.clicked.connect(self._on_startButton)
         self.stopButton.clicked.connect(self._on_stopButton)
+        self.screenshotButton.clicked.connect(lambda: setattr(self, 'screenshot_toggle', True))
 
     def _on_stopButton(self):
         self.video_status = False
