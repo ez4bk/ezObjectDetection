@@ -93,6 +93,9 @@ border-radius:15px
              </property>
              <item>
               <widget class="QListWidget" name="menuList">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -126,6 +129,9 @@ QListView::item:selected {
 background-color: rgb(239, 239, 239);
 color: rgb(12, 20, 36);
 border-radius:8px;
+}
+QListView::item:disabled{
+color:gray
 }
 </string>
                </property>
@@ -237,7 +243,7 @@ border-radius:15px
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="homePage">
              <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0">
@@ -644,6 +650,24 @@ color:b;
                    <property name="styleSheet">
                     <string notr="true">color:b;</string>
                    </property>
+                   <property name="editTriggers">
+                    <set>QAbstractItemView::NoEditTriggers</set>
+                   </property>
+                   <property name="dragDropOverwriteMode">
+                    <bool>false</bool>
+                   </property>
+                   <property name="selectionMode">
+                    <enum>QAbstractItemView::SingleSelection</enum>
+                   </property>
+                   <property name="selectionBehavior">
+                    <enum>QAbstractItemView::SelectRows</enum>
+                   </property>
+                   <property name="gridStyle">
+                    <enum>Qt::DashLine</enum>
+                   </property>
+                   <attribute name="verticalHeaderVisible">
+                    <bool>false</bool>
+                   </attribute>
                    <column>
                     <property name="text">
                      <string>Name</string>
@@ -693,10 +717,33 @@ color:b;
                <widget class="QFrame" name="settingFrame">
                 <property name="styleSheet">
                  <string notr="true">QFrame{
-	background-color: rgb(255, 255, 255);
+background-color: rgb(255, 255, 255);
 border:0px solid red;
-	color: rgb(255, 254, 255);
+color: rgb(255, 254, 255);
 border-radius:15px
+}
+QLabel{
+font: bold;
+font-size: 16;
+color:b;
+}
+QPushButton {
+background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);
+font-size: 16px;
+font-weight: bold;
+color: white;
+border-radius: 10px;
+}
+
+QPushButton:hover {
+background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);
+}
+QPushButton:pressed {
+background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);
+}
+QPushButton:disabled {
+background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);
+color: gray
 }</string>
                 </property>
                 <property name="frameShape">

@@ -16,6 +16,7 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
         self.setupUi(self)
         self.menuList.setCurrentRow(0)
         self._init_buttons()
+        self._init_result_table()
 
         self.video_thread = None
         self.video_status = False
@@ -23,6 +24,15 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
         self.screenshot_toggle = False
         self.table_results = TableResult()
         self.total_frames = 0
+
+    def _init_result_table(self):
+        self.resultTable.cellDoubleClicked.connect(self._on_resultTable_doubleClicked)
+
+    @pyqtSlot(int, int)
+    def _on_resultTable_doubleClicked(self, row, column):
+        name = self.resultTable.itemAt(row, 0).text()
+        self.table_results.reset_attr(name)
+        self._list_to_table()
 
     def _init_buttons(self):
         self.stopButton.setEnabled(False)
@@ -39,6 +49,7 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
         self.video_thread = None
 
         self.startButton.setEnabled(True)
+        self.menuList.setEnabled(True)
         if not self.screenshot:
             self.screenshotButton.setEnabled(False)
             self.saveButton.setEnabled(False)
@@ -50,6 +61,7 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
         self.startButton.setEnabled(False)
         self.stopButton.setEnabled(True)
         self.screenshotButton.setEnabled(True)
+        self.menuList.setEnabled(False)
 
         self.video_thread = VideoThread(self)
         self.video_thread.update_frame_signal.connect(self._update_frame)
@@ -70,14 +82,11 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
 
         self.saveButton.setEnabled(True)
         self.saveToButton.setEnabled(True)
-        self.screenshotView.setPixmap(self.convert_cv_qt(img_arr).scaled(self.screenshotView.width(), self.screenshotView.height()))
+        self.screenshotView.setPixmap(
+            self.convert_cv_qt(img_arr).scaled(self.screenshotView.width(), self.screenshotView.height()))
 
     @pyqtSlot(Results, dict)
     def _update_result_table(self, res, names):
-        # for cls in res.boxes.cls:
-        #     print(names[int(cls)].strip())
-        # for conf in res.boxes.conf:
-        #     print(float(conf))
         for output in zip(res.boxes.cls, res.boxes.conf):
             # print(names[int(output[0])].strip(), float(output[1]))
             self.table_results.append(names[int(output[0])].strip(), float(output[1]))
