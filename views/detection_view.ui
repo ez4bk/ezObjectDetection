@@ -703,7 +703,7 @@ QPushButton:disabled {
                    </column>
                    <column>
                     <property name="text">
-                     <string>New Column</string>
+                     <string>Frame Count</string>
                     </property>
                     <property name="font">
                      <font>

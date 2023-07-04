@@ -484,6 +484,6 @@ class Ui_objectdetectionWindow(object):
         item = self.resultTable.horizontalHeaderItem(0)
         item.setText(_translate("objectdetectionWindow", "Name"))
         item = self.resultTable.horizontalHeaderItem(1)
-        item.setText(_translate("objectdetectionWindow", "New Column"))
+        item.setText(_translate("objectdetectionWindow", "Frame Count"))
         item = self.resultTable.horizontalHeaderItem(2)
         item.setText(_translate("objectdetectionWindow", "Avg.  Conf."))

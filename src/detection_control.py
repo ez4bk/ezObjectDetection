@@ -7,6 +7,7 @@ from ultralytics.yolo.engine.results import Results
 
 from src.detection_view import Ui_objectdetectionWindow
 from src.video_thread import VideoThread
+from src.table_result import TableResult
 
 
 class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
@@ -19,6 +20,7 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
         self.video_status = False
         self.screenshot = None
         self.screenshot_toggle = False
+        self.table_results = TableResult()
 
     def _init_buttons(self):
         self.stopButton.setEnabled(False)
@@ -73,7 +75,17 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
         # for conf in res.boxes.conf:
         #     print(float(conf))
         for output in zip(res.boxes.cls, res.boxes.conf):
-            print(names[int(output[0])].strip(), float(output[1]))
+            # print(names[int(output[0])].strip(), float(output[1]))
+            self.table_results.append(names[int(output[0])].strip(), float(output[1]))
+            self._list_to_table()
+
+    def _list_to_table(self):
+        res_list = self.table_results.to_list()
+        self.resultTable.setRowCount(len(res_list))
+        for i, res in enumerate(res_list):
+            self.resultTable.setItem(i, 0, QtWidgets.QTableWidgetItem(res['name']))
+            self.resultTable.setItem(i, 1, QtWidgets.QTableWidgetItem(str(res['frame_count'])))
+            self.resultTable.setItem(i, 2, QtWidgets.QTableWidgetItem(str(res['avg_conf'])))
 
     def _thread_finished(self):
         self.video_thread = None
