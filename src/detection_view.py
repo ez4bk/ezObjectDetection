@@ -55,26 +55,27 @@ class Ui_objectdetectionWindow(object):
         self.menuList.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setBold(True)
+        font.setItalic(False)
         font.setWeight(75)
         self.menuList.setFont(font)
         self.menuList.setStyleSheet("QListView {\n"
-"\n"
+"font: bold;\n"
 "}\n"
 "QListView::item{\n"
 "background-color: transparent;\n"
-"    color: black;\n"
+"color: black;\n"
 "padding:8px;\n"
 "padding-left:4px;\n"
 "margin-bottom:8px;\n"
 "}\n"
 "QListView::item:hover {\n"
 "border-radius:8px;\n"
-"    background-color: rgb(240, 240, 240)\n"
+"background-color: rgb(240, 240, 240)\n"
 "\n"
 "}\n"
 "QListView::item:selected {\n"
-"    background-color: rgb(239, 239, 239);\n"
-"    color: rgb(12, 20, 36);\n"
+"background-color: rgb(239, 239, 239);\n"
+"color: rgb(12, 20, 36);\n"
 "border-radius:8px;\n"
 "}\n"
 "")
@@ -196,10 +197,15 @@ class Ui_objectdetectionWindow(object):
         self.upperLayout.addWidget(self.videoFrame)
         self.controlFrame = QtWidgets.QFrame(parent=self.homePage)
         self.controlFrame.setStyleSheet("QFrame{\n"
-"    background-color: rgb(255, 255, 255);\n"
-"    border:0px solid red;\n"
-"    color: rgb(255, 254, 255);\n"
-"    border-radius:15px\n"
+"background-color: rgb(255, 255, 255);\n"
+"border:0px solid red;\n"
+"color: rgb(255, 254, 255);\n"
+"border-radius:15px\n"
+"}\n"
+"QLabel{\n"
+"font: bold;\n"
+"font-size: 16;\n"
+"color:b;\n"
 "}")
         self.controlFrame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.controlFrame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
@@ -267,8 +273,27 @@ class Ui_objectdetectionWindow(object):
         self.saveToButton.setFont(font)
         self.saveToButton.setObjectName("saveToButton")
         self.verticalLayout_3.addWidget(self.saveToButton)
-        spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
         self.verticalLayout_3.addItem(spacerItem)
+        self.totalFramLayout = QtWidgets.QHBoxLayout()
+        self.totalFramLayout.setObjectName("totalFramLayout")
+        self.totalFrameTitleLabel = QtWidgets.QLabel(parent=self.controlFrame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Maximum, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.totalFrameTitleLabel.sizePolicy().hasHeightForWidth())
+        self.totalFrameTitleLabel.setSizePolicy(sizePolicy)
+        self.totalFrameTitleLabel.setObjectName("totalFrameTitleLabel")
+        self.totalFramLayout.addWidget(self.totalFrameTitleLabel)
+        self.totalFrameLabel = QtWidgets.QLabel(parent=self.controlFrame)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Preferred, QtWidgets.QSizePolicy.Policy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.totalFrameLabel.sizePolicy().hasHeightForWidth())
+        self.totalFrameLabel.setSizePolicy(sizePolicy)
+        self.totalFrameLabel.setObjectName("totalFrameLabel")
+        self.totalFramLayout.addWidget(self.totalFrameLabel)
+        self.verticalLayout_3.addLayout(self.totalFramLayout)
         self.upperLayout.addWidget(self.controlFrame)
         self.upperLayout.setStretch(0, 2)
         self.verticalLayout_5.addLayout(self.upperLayout)
@@ -313,33 +338,30 @@ class Ui_objectdetectionWindow(object):
         self.resultTable.setMaximumSize(QtCore.QSize(300, 16777215))
         font = QtGui.QFont()
         font.setPointSize(16)
-        font.setBold(True)
-        font.setItalic(False)
-        font.setWeight(75)
         self.resultTable.setFont(font)
-        self.resultTable.setStyleSheet("color:b; font: bold;")
+        self.resultTable.setStyleSheet("color:b;")
         self.resultTable.setObjectName("resultTable")
         self.resultTable.setColumnCount(3)
         self.resultTable.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setBold(False)
+        font.setWeight(50)
         item.setFont(font)
         self.resultTable.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setBold(False)
+        font.setWeight(50)
         item.setFont(font)
         self.resultTable.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
         font = QtGui.QFont()
         font.setPointSize(14)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setBold(False)
+        font.setWeight(50)
         item.setFont(font)
         self.resultTable.setHorizontalHeaderItem(2, item)
         self.horizontalLayout_3.addWidget(self.resultTable)
@@ -417,6 +439,8 @@ class Ui_objectdetectionWindow(object):
         self.screenshotButton.setText(_translate("objectdetectionWindow", "Screenshot"))
         self.saveButton.setText(_translate("objectdetectionWindow", "Save"))
         self.saveToButton.setText(_translate("objectdetectionWindow", "Save to.."))
+        self.totalFrameTitleLabel.setText(_translate("objectdetectionWindow", "Total Frames:"))
+        self.totalFrameLabel.setText(_translate("objectdetectionWindow", "0"))
         item = self.resultTable.horizontalHeaderItem(0)
         item.setText(_translate("objectdetectionWindow", "Name"))
         item = self.resultTable.horizontalHeaderItem(1)

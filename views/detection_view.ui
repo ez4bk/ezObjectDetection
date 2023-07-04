@@ -102,28 +102,29 @@ border-radius:15px
                <property name="font">
                 <font>
                  <weight>75</weight>
+                 <italic>false</italic>
                  <bold>true</bold>
                 </font>
                </property>
                <property name="styleSheet">
                 <string notr="true">QListView {
-
+font: bold;
 }
 QListView::item{
 background-color: transparent;
-	color: black;
+color: black;
 padding:8px;
 padding-left:4px;
 margin-bottom:8px;
 }
 QListView::item:hover {
 border-radius:8px;
-	background-color: rgb(240, 240, 240)
+background-color: rgb(240, 240, 240)
 
 }
 QListView::item:selected {
-	background-color: rgb(239, 239, 239);
-	color: rgb(12, 20, 36);
+background-color: rgb(239, 239, 239);
+color: rgb(12, 20, 36);
 border-radius:8px;
 }
 </string>
@@ -209,24 +210,6 @@ background-color: rgb(237, 235, 235);
 border:0px solid red;
 border-radius:15px
 }
-QPushButton {
-background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);
-font-size: 16px;
-font-weight: bold;
-color: white;
-border-radius: 10px;
-}
-
-QPushButton:hover {
-background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);
-}
-QPushButton:pressed {
-background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);
-}
-QPushButton:disabled {
-background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);
-color: gray
-}
 </string>
          </property>
          <property name="frameShape">
@@ -254,7 +237,7 @@ color: gray
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="homePage">
              <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0">
@@ -343,10 +326,33 @@ border-radius:15px</string>
                  <widget class="QFrame" name="controlFrame">
                   <property name="styleSheet">
                    <string notr="true">QFrame{
-	background-color: rgb(255, 255, 255);
-	border:0px solid red;
-	color: rgb(255, 254, 255);
-	border-radius:15px
+background-color: rgb(255, 255, 255);
+border:0px solid red;
+color: rgb(255, 254, 255);
+border-radius:15px
+}
+QLabel{
+font: bold;
+font-size: 16;
+color:b;
+}
+QPushButton {
+background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);
+font-size: 16px;
+font-weight: bold;
+color: white;
+border-radius: 10px;
+}
+
+QPushButton:hover {
+background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);
+}
+QPushButton:pressed {
+background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);
+}
+QPushButton:disabled {
+background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);
+color: gray
 }</string>
                   </property>
                   <property name="frameShape">
@@ -388,9 +394,6 @@ border-radius:15px</string>
                        <weight>75</weight>
                        <bold>true</bold>
                       </font>
-                     </property>
-                     <property name="styleSheet">
-                      <string notr="true"/>
                      </property>
                      <property name="text">
                       <string>Start</string>
@@ -506,16 +509,43 @@ border-radius:15px</string>
                      <property name="orientation">
                       <enum>Qt::Vertical</enum>
                      </property>
-                     <property name="sizeType">
-                      <enum>QSizePolicy::Expanding</enum>
-                     </property>
                      <property name="sizeHint" stdset="0">
                       <size>
                        <width>20</width>
-                       <height>20</height>
+                       <height>40</height>
                       </size>
                      </property>
                     </spacer>
+                   </item>
+                   <item>
+                    <layout class="QHBoxLayout" name="totalFramLayout">
+                     <item>
+                      <widget class="QLabel" name="totalFrameTitleLabel">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>Total Frames:</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="totalFrameLabel">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="text">
+                        <string>0</string>
+                       </property>
+                      </widget>
+                     </item>
+                    </layout>
                    </item>
                   </layout>
                  </widget>
@@ -609,13 +639,10 @@ color:b;
                    <property name="font">
                     <font>
                      <pointsize>16</pointsize>
-                     <weight>75</weight>
-                     <italic>false</italic>
-                     <bold>true</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">color:b; font: bold;</string>
+                    <string notr="true">color:b;</string>
                    </property>
                    <column>
                     <property name="text">
@@ -624,8 +651,8 @@ color:b;
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
+                      <weight>50</weight>
+                      <bold>false</bold>
                      </font>
                     </property>
                    </column>
@@ -636,8 +663,8 @@ color:b;
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
+                      <weight>50</weight>
+                      <bold>false</bold>
                      </font>
                     </property>
                    </column>
@@ -648,8 +675,8 @@ color:b;
                     <property name="font">
                      <font>
                       <pointsize>14</pointsize>
-                      <weight>75</weight>
-                      <bold>true</bold>
+                      <weight>50</weight>
+                      <bold>false</bold>
                      </font>
                     </property>
                    </column>

@@ -14,6 +14,7 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.menuList.setCurrentRow(0)
         self._init_buttons()
 
         self.video_thread = None
@@ -21,6 +22,7 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
         self.screenshot = None
         self.screenshot_toggle = False
         self.table_results = TableResult()
+        self.total_frames = 0
 
     def _init_buttons(self):
         self.stopButton.setEnabled(False)
@@ -59,6 +61,8 @@ class DetectionControl(QtWidgets.QMainWindow, Ui_objectdetectionWindow):
     @pyqtSlot(ndarray)
     def _update_frame(self, img_arr):
         self.videoView.setPixmap(self.convert_cv_qt(img_arr).scaled(self.videoView.width(), self.videoView.height()))
+        self.total_frames += 1
+        self.totalFrameLabel.setText(str(self.total_frames))
 
     @pyqtSlot(ndarray)
     def _update_screenshot(self, img_arr):
