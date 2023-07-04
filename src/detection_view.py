@@ -119,10 +119,29 @@ class Ui_objectdetectionWindow(object):
         self.horizontalLayout_18.addWidget(self.leftFrame)
         self.rightFrame = QtWidgets.QFrame(parent=self.backgroundFrame)
         self.rightFrame.setStyleSheet("QFrame{\n"
-"    background-color: rgb(237, 235, 235);\n"
-"    border:0px solid red;\n"
-"    border-radius:15px\n"
-"}")
+"background-color: rgb(237, 235, 235);\n"
+"border:0px solid red;\n"
+"border-radius:15px\n"
+"}\n"
+"QPushButton {\n"
+"background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
+"font-size: 16px;\n"
+"font-weight: bold;\n"
+"color: white;\n"
+"border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
+"}\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"}\n"
+"QPushButton:disabled {\n"
+"background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
+"color: gray\n"
+"}\n"
+"")
         self.rightFrame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.rightFrame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.rightFrame.setObjectName("rightFrame")
@@ -197,24 +216,7 @@ class Ui_objectdetectionWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.startButton.setFont(font)
-        self.startButton.setStyleSheet("QPushButton {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
-"           font-size: 16px;\n"
-"            font-weight: bold;\n"
-"            color: white;\n"
-"            border-radius: 10px;\n"
-"        }\n"
-"\n"
-"QPushButton:hover {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
-"        }\n"
-"QPushButton:pressed {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"        }\n"
-"QPushButton:disabled {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"            color: gray\n"
-"        }")
+        self.startButton.setStyleSheet("")
         self.startButton.setObjectName("startButton")
         self.verticalLayout_3.addWidget(self.startButton)
         self.stopButton = QtWidgets.QPushButton(parent=self.controlFrame)
@@ -229,24 +231,6 @@ class Ui_objectdetectionWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.stopButton.setFont(font)
-        self.stopButton.setStyleSheet("QPushButton {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
-"           font-size: 16px;\n"
-"            font-weight: bold;\n"
-"            color: white;\n"
-"            border-radius: 10px;\n"
-"        }\n"
-"\n"
-"QPushButton:hover {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
-"        }\n"
-"QPushButton:pressed {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"        }\n"
-"QPushButton:disabled {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"            color: gray\n"
-"        }")
         self.stopButton.setObjectName("stopButton")
         self.verticalLayout_3.addWidget(self.stopButton)
         self.screenshotButton = QtWidgets.QPushButton(parent=self.controlFrame)
@@ -256,24 +240,6 @@ class Ui_objectdetectionWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.screenshotButton.setFont(font)
-        self.screenshotButton.setStyleSheet("QPushButton {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
-"           font-size: 16px;\n"
-"            font-weight: bold;\n"
-"            color: white;\n"
-"            border-radius: 10px;\n"
-"        }\n"
-"\n"
-"QPushButton:hover {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
-"        }\n"
-"QPushButton:pressed {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"        }\n"
-"QPushButton:disabled {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"            color: gray\n"
-"        }")
         self.screenshotButton.setObjectName("screenshotButton")
         self.verticalLayout_3.addWidget(self.screenshotButton)
         self.saveButton = QtWidgets.QPushButton(parent=self.controlFrame)
@@ -289,24 +255,6 @@ class Ui_objectdetectionWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.saveButton.setFont(font)
-        self.saveButton.setStyleSheet("QPushButton {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
-"           font-size: 16px;\n"
-"            font-weight: bold;\n"
-"            color: white;\n"
-"            border-radius: 10px;\n"
-"        }\n"
-"\n"
-"QPushButton:hover {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
-"        }\n"
-"QPushButton:pressed {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"        }\n"
-"QPushButton:disabled {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"            color: gray\n"
-"        }")
         self.saveButton.setObjectName("saveButton")
         self.verticalLayout_3.addWidget(self.saveButton)
         self.saveToButton = QtWidgets.QPushButton(parent=self.controlFrame)
@@ -317,24 +265,6 @@ class Ui_objectdetectionWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.saveToButton.setFont(font)
-        self.saveToButton.setStyleSheet("QPushButton {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #8a9195, stop:1 black);\n"
-"           font-size: 16px;\n"
-"            font-weight: bold;\n"
-"            color: white;\n"
-"            border-radius: 10px;\n"
-"        }\n"
-"\n"
-"QPushButton:hover {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #7d8488, stop:1 black);\n"
-"        }\n"
-"QPushButton:pressed {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"        }\n"
-"QPushButton:disabled {\n"
-"            background-color: qlineargradient(x1:1, y1:0, x2:1, y2:0.3, stop:0 #6a7073, stop:1 black);\n"
-"            color: gray\n"
-"        }")
         self.saveToButton.setObjectName("saveToButton")
         self.verticalLayout_3.addWidget(self.saveToButton)
         spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
@@ -349,6 +279,9 @@ class Ui_objectdetectionWindow(object):
 "    border:0px solid red;\n"
 "    color: rgb(255, 254, 255);\n"
 "    border-radius:15px\n"
+"}\n"
+"QTableWidget{\n"
+"color:b;\n"
 "}")
         self.resultFrame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.resultFrame.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
@@ -380,8 +313,11 @@ class Ui_objectdetectionWindow(object):
         self.resultTable.setMaximumSize(QtCore.QSize(300, 16777215))
         font = QtGui.QFont()
         font.setPointSize(16)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
         self.resultTable.setFont(font)
-        self.resultTable.setStyleSheet("color:black;")
+        self.resultTable.setStyleSheet("color:b; font: bold;")
         self.resultTable.setObjectName("resultTable")
         self.resultTable.setColumnCount(3)
         self.resultTable.setRowCount(0)
